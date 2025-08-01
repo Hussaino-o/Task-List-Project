@@ -4,8 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>مدير المهام</title>
+    <link rel="stylesheet" href="css/all.min.css" />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap");
 
+      root {
+        --green-color: #20bf6b;
+        --red-color: #ff3838;
+        --light-red-color: #ff6b6b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: "Cairo", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #ff6b6b 0%,
+          #feca57 50%,
+          #48cae4 100%
+        );
+        min-height: 100vh;
+      }
+
+      .container {
+        border: 1px solid;
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: center;
+        border-radius: 20px;
+        overflow: hidden;
+        .header {
+          background: linear-gradient(135deg, #ff6b6b, #feca57);
+          color: white;
+          direction: rtl;
+          padding: 30px 0;
+          h1 {
+            margin: 0 0 10px;
+            font-size: 40px;
+          }
+          p {
+            margin: 0;
+            font-size: 18px;
+          }
+        }
+        .control {
+          background-color: white;
+          padding: 25px 25px 30px;
+          .form {
+            display: flex;
+            gap: 10px;
+            input {
+              padding: 15px 0;
+              font-size: 16px;
+              direction: rtl;
+              border-radius: 25px;
+              border: none;
+              outline: none;
+              font-family: "Cairo", sans-serif;
+              transition: 0.3s;
+            }
+            input[type="submit"] {
+              width: 150px;
+              cursor: pointer;
+              color: white;
+              background: linear-gradient(135deg, #ff6b6b, #feca57);
+              box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+              &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+              }
+            }
+            input[type="text"] {
+              width: calc(100% - 150px);
+              padding-right: 20px;
+              padding-left: 20px;
+              background: #f8f9fa;
+              border: 2px solid;
+              border-color: #e1e8ed;
+              &:focus {
+                border-color: #ff3838;
+                box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+                background: white;
+                transform: translateY(-2px);
+              }
+            }
+          }
+          .empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            i {
+            }
+            .text {
+              h3 {
+              }
+              span {
+              }
+            }
+          }
+          .statistics {
+            div {
+              .count {
+              }
+              .text {
+              }
+            }
+          }
+          .tasks {
+            .task {
+              .text {
+              }
+              .deleteButton {
+              }
+            }
+          }
+        }
+      }
     </style>
   </head>
   <body>
@@ -14,14 +135,47 @@
         <h1>📝 مدير المهام</h1>
         <p>نظم مهامك بأناقة و سهولة</p>
       </div>
-      <div class="form">
-        <input type="submit" class="add" value="Add Task" />
-        <input type="text" class="input" />
+      <div class="control">
+        <div class="form">
+          <input type="submit" class="add" value="اضافة مهمة" />
+          <input type="text" class="input" placeholder="أدخل مهمة جديدة..." />
+        </div>
+        <div class="empty">
+          <i class="fa-solid fa-check"></i>
+          <div class="text">
+            <h3>لا توجد مهام بعد</h3>
+            <span>ابدأ بإضافة مهمتك الأولى!</span>
+          </div>
+        </div>
+        <div class="statistics">
+          <div class="total-tasks">
+            <span class="count">0</span>
+            <span class="text">اجمالي المهام</span>
+          </div>
+          <div class="completed">
+            <span class="count">0</span>
+            <span class="text">مكتملة</span>
+          </div>
+          <div class="suspended">
+            <span class="count">0</span>
+            <span class="text">معلقة</span>
+          </div>
+        </div>
+        <div class="tasks">
+          <!-- <div class="task">
+          <span class="text">
+            Task 1
+          </span>
+          <button class="deleteButton">Delete</button>
+        </div>
+        <div class="task">
+          <span class="text">
+            Task 2
+          </span>
+          <button class="deleteButton">Delete</button>
+        </div> -->
+        </div>
       </div>
-      <div class="statistics">
-        .Total tasks
-      </div>
-      <div class="tasks"></div>
     </div>
     <script src="main.js"></script>
   </body>
