@@ -9,7 +9,7 @@ function loadTask() {
   // localStorage.clear()
   let localInfo = JSON.parse(localStorage.getItem("tasks"));
 
-  if (localInfo.length > 0) {
+  if (localInfo) {
     for (let i = 0; i < localInfo.length; i++) {
       addTask(localInfo[i].id, localInfo[i].text, localInfo[i].status);
     }
@@ -18,7 +18,7 @@ function loadTask() {
     statistics.style.display = "none";
   }
 
-  tasksStatistics();
+  tasksStatistics()
 }
 
 function addTask(localId, localText, status) {
@@ -43,6 +43,8 @@ function addTask(localId, localText, status) {
   if (status === "completed") {
     task.classList.add("completed");
   }
+
+
 
   let deleteButton = document.createElement("button");
   deleteButton.textContent = "حذف";
@@ -69,7 +71,7 @@ function addTask(localId, localText, status) {
     window.localStorage.setItem("tasks", JSON.stringify(tasksArray));
   }
 
-  tasksStatistics();
+  tasksStatistics()
 
   input.value = "";
 }
@@ -93,7 +95,7 @@ function removeTask() {
         statistics.style.display = "none";
       }
 
-      tasksStatistics();
+      tasksStatistics()
     }
   });
 }
@@ -123,7 +125,7 @@ function completeButton() {
       });
       localStorage.setItem("tasks", JSON.stringify(newLocalInfo));
 
-      tasksStatistics();
+      tasksStatistics()
     }
   });
 }
@@ -138,19 +140,20 @@ function loudClassEffect() {
 }
 
 function tasksStatistics() {
-  let totalCount = statistics.children[0].children[0];
-  let completed = statistics.children[1].children[0];
-  let suspended = statistics.children[2].children[0];
-  let allTask = document.querySelectorAll(".tasks .task");
-  let taskCompleteCount = 0;
+  let totalCount = statistics.children[0].children[0]
+  let completed = statistics.children[1].children[0]
+  let suspended = statistics.children[2].children[0]
+  let allTask = document.querySelectorAll(".tasks .task")
+  let taskCompleteCount = 0
 
-  totalCount.textContent = tasks.children.length;
-  allTask.forEach((e) =>
-    e.classList.contains("completed") ? taskCompleteCount++ : ""
-  );
-  completed.textContent = taskCompleteCount;
-  suspended.textContent = tasks.children.length - taskCompleteCount;
+  totalCount.textContent = tasks.children.length
+  allTask.forEach(e => e.classList.contains("completed") ? taskCompleteCount++ : "")
+  completed.textContent = taskCompleteCount
+  suspended.textContent = tasks.children.length - taskCompleteCount
+  
 }
+
+
 
 loadTask();
 
