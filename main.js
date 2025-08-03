@@ -12,9 +12,9 @@ function loadTask() {
 }
 
 function addTask(localId, localText) {
+  
   let task = document.createElement("div");
   task.className = "task";
-  task.style.display = "flex";
   tasks.append(task);
 
   let text = document.createElement("span");
@@ -38,10 +38,11 @@ function addTask(localId, localText) {
   }
 
   let deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
+  deleteButton.textContent = "حذف";
   deleteButton.className = "deleteButton";
   task.append(deleteButton);
   input.value = "";
+  animation()
 }
 
 function removeTask() {
@@ -57,6 +58,15 @@ function removeTask() {
       localStorage.setItem("tasks", JSON.stringify(newLocalInfo));
     }
   });
+}
+
+function animation() {
+  tasks.style.opacity = "0";
+  tasks.style.transform = "translateX(3px)";
+  setTimeout(() => {
+    tasks.style.opacity = "1";
+    tasks.style.transform = "translateX(0px)";
+  }, 1);
 }
 
 loadTask();
