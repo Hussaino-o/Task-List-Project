@@ -76,13 +76,14 @@ body {
         }
       }
     }
-    .empty {
+    .empty-title {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 30px;
       padding: 90px 0 60px;
+      display: none;
       i {
         font-size: 60px;
         background-color: rgb(185, 185, 185);
@@ -104,8 +105,8 @@ body {
           color: #777;
         }
       }
-      &.not-empty {
-        display: none;
+      &.empty {
+        display: flex;
       }
     }
     .statistics {
@@ -148,7 +149,8 @@ body {
           font-weight: 400;
           text-align: start;
         }
-        .deleteButton {
+        .deleteButton,
+        .completeButton {
           padding: 8px 15px;
           border: none;
           outline: none;
@@ -156,17 +158,31 @@ body {
           color: white;
           font-size: 15px;
           font-family: "Cairo", sans-serif;
-          background-color: #ff5151;
           cursor: pointer;
           transition: 0.3s;
+          opacity: 0.9;
           &:hover {
             transform: scale(1.03);
-            background-color: #ff3838;
+            opacity: 1;
           }
+        }
+        .deleteButton {
+          background-color: #ff3838;
+        }
+        .completeButton {
+          background: #20bf6b;
+          margin-left: 10px;
         }
         &:hover {
           transform: translateY(-3px);
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        &.completed {
+          opacity: 0.6;
+          border-right: 3px solid #20bf6b;
+          .text {
+            text-decoration: line-through;
+          }
         }
       }
     }
