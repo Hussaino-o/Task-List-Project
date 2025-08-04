@@ -188,3 +188,13 @@ body {
     }
   }
 }
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    border-radius: 0px;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+}
